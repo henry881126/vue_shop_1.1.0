@@ -7,7 +7,9 @@ let car = () => import('@/views/car.vue')
 let my = () => import('@/views/my.vue')
 let detail = () => import('@/views/detail.vue')
 let orderList = () => import('@/views/orderList.vue')
+let addressList = () => import('@/views/addressList.vue')
 let addAddress = () => import('@/views/addAddress.vue')
+let addressChange = () => import('@/views/addressChange.vue')
 Vue.use(Router)
 
 export default new Router({
@@ -48,6 +50,15 @@ export default new Router({
       path: '/addAddress',
       name: 'addAddress',
       component: addAddress
+    }, {
+      path: '/addressList',
+      name: 'addressList',
+      component: addressList
+    },
+    {
+      path: '/addressChange',
+      name: 'addressChange',
+      component: addressChange
     }
   ]
 })

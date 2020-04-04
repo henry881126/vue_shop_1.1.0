@@ -8,10 +8,29 @@ const state = {
   isShow: false,
   goodsItem: JSON.parse(localStorage.getItem('goodsItem')) || {},
   classify: false,
-  payGoods: JSON.parse(localStorage.getItem('payGoods')) || []// 已支付的数据
+  payGoods: JSON.parse(localStorage.getItem('payGoods')) || [],// 已支付的数据
+  adressList: JSON.parse(localStorage.getItem('adressList')) || [],
+  radio: JSON.parse(localStorage.getItem('radio')) || '1'
 }
 
 const mutations = {
+  changeRadio (state, payload) {
+    state.radio = payload
+    localStorage.setItem('radio', payload)
+  },
+  editAdress (state, payload) {
+    console.log(payload)
+    state.adressList[payload.index] = payload.data
+  },
+  delItem(state,payload){
+    state.adressList.splice(payload,1)
+    localStorage.setItem('adressList', JSON.stringify(state.addAdressList))
+  },
+  addAdressList (state, payload) {
+    state.adressList.push(payload)
+    let data = JSON.stringify(state.adressList)
+    localStorage.setItem('adressList', data)
+  },
   classifyStyle (state, payload) {
     state.classify = payload
   },

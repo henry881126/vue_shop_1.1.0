@@ -38,7 +38,7 @@ export default {
       this.$router.push('/orderList')
     },
     address () {
-      this.$router.push('/addAddress')
+      this.$router.push('/addressList')
     }
   },
   created () {

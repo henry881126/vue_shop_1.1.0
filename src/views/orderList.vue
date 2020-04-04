@@ -6,14 +6,12 @@
                  fixed
                  border
                  @click-left="onClickLeft" />
-    <van-tabs v-model="active"
-              swipeable>
-      <van-tab v-for="(item,index) in tabName"
-               :title="item"
-               :key="index"
-               bind:change="change">
-
-        <div class="item" v-for="(item,index) in allGoodsData"
+    <van-tabs swipeable
+    class="tabFixed"
+              :active="active">
+      <van-tab title="全部">
+        <div class="item"
+             v-for="(item,index) in allGoodsData"
              :key="index">
           <div class="left">
             <img :src="item.data.image"
@@ -24,6 +22,37 @@
             <p>{{item.data.price+'元'}}</p>
           </div>
         </div>
+      </van-tab>
+      <van-tab title="代付款">
+        <div class="item"
+             v-for="(item,index) in noPay"
+             :key="index">
+          <div class="left">
+            <img :src="item.data.image"
+                 alt="">
+          </div>
+          <div class="right">
+            <p>{{item.data.title+item.data.title}}</p>
+            <p>{{item.data.price+'元'}}</p>
+          </div>
+        </div>
+      </van-tab>
+      <van-tab title="代发货">
+        <div class="item"
+             v-for="(item,index) in havePay"
+             :key="index">
+          <div class="left">
+            <img :src="item.data.image"
+                 alt="">
+          </div>
+          <div class="right">
+            <p>{{item.data.title+item.data.title}}</p>
+            <p>{{item.data.price+'元'}}</p>
+          </div>
+        </div>
+      </van-tab>
+      <van-tab title="代收货">
+        <div class="empty">暂 <br>无<br>数<br>据</div>
       </van-tab>
     </van-tabs>
   </div>
@@ -37,34 +66,53 @@ export default {
     return {
       active: 0,
       tabName: ['全部', '待付款', '待发货', '待收货'],
-      allGoodsData: []
+
+      waitGet:[]
     }
   },
   methods: {
     onClickLeft () {
       this.$router.go(-1)
     },
-    change(){
+    onChange () {
       console.log(9)
     }
   },
   computed: {
     ...mapState(['myGoods', 'payGoods']),
+    allGoodsData(){
+      return this.myGoods.concat(this.payGoods)
+    },
+    havePay(){
+      return this.payGoods
+    },
+    noPay(){
+      return this.myGoods
+    }
   },
   created () {
-    console.log(this.myGoods)
-    console.log(this.payGoods)
-    this.allGoodsData = this.myGoods.concat(this.payGoods)
-    console.log(this.allGoodsData)
+
   }
 }
 </script>
 
 <style scoped>
+.empty{
+  position: fixed;
+  top: 100px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  line-height: 1.5;
+}
 .orderList {
   padding-top: 40px;
 }
-.item{
+.item {
   height: 120px;
   display: flex;
   padding: 0 1.4em;
@@ -73,17 +121,17 @@ export default {
   font-size: 1.2em;
   font-weight: 600;
 }
-.item .right{
+.item .right {
   display: flex;
   height: 100%;
   flex-direction: column;
   justify-content: space-between;
   padding: 1em;
   box-sizing: border-box;
-  
+
   /* align-items: space-between; */
 }
-.item .right p:nth-of-type(1){
+.item .right p:nth-of-type(1) {
   text-overflow: -o-ellipsis-lastline;
   overflow: hidden;
   text-overflow: ellipsis;
