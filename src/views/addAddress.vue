@@ -208,7 +208,6 @@ console.log(999)
   text-align: center;
 }
 .body {
-  background: red;
   position: absolute;
   top: 50px;
   right: 0;
