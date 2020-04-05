@@ -16,7 +16,7 @@
         暂无地址
       </div>
       <div else>
-        <van-radio-group :value="radio">
+        <van-radio-group :value="radio+''">
 
           <div class="item"
                v-for="(item,index) in adressList"
@@ -78,7 +78,8 @@ export default {
     }
   },
   created () {
-    console.log(this.adressList)
+    // this.radio=this.radio+''
+    console.log(this.radio)
   }
 }
 </script>
@@ -86,7 +87,7 @@ export default {
 <style scoped>
 .item {
   display: flex;
-  min-height: 80px;
+  min-height: 90px;
   align-items: center;
   padding: 0 1em;
   box-sizing: border-box;
