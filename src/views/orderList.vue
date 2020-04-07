@@ -23,7 +23,7 @@
           </div>
         </div>
       </van-tab>
-      <van-tab title="代付款">
+      <van-tab title="待付款">
         <div class="item"
              v-for="(item,index) in noPay"
              :key="index">
@@ -37,7 +37,7 @@
           </div>
         </div>
       </van-tab>
-      <van-tab title="代发货">
+      <van-tab title="待发货">
         <div class="item"
              v-for="(item,index) in havePay"
              :key="index">
@@ -51,7 +51,7 @@
           </div>
         </div>
       </van-tab>
-      <van-tab title="代收货">
+      <van-tab title="待收货">
         <div class="empty">暂 <br>无<br>数<br>据</div>
       </van-tab>
     </van-tabs>
