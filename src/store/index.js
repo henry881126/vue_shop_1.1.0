@@ -1,16 +1,24 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+let myGoods = localStorage.getItem('myGoods') || '[]'
+let goodsItem = localStorage.getItem('goodsItem') || '{}'
+let payGoods = localStorage.getItem('payGoods') || '[]'
+let radio = localStorage.getItem('radio') || '1'
+let adressList = localStorage.getItem('adressList') || '[]'
+if ((adressList + '') == 'undefined') {
+  adressList = '[]'
+}
 Vue.use(Vuex)
 
 const state = {
-  myGoods: JSON.parse(localStorage.getItem('myGoods')) || [],
+  myGoods: JSON.parse(myGoods) || [],
   isShow: false,
-  goodsItem: JSON.parse(localStorage.getItem('goodsItem')) || {},
+  goodsItem: JSON.parse(goodsItem) || {},
   classify: false,
-  payGoods: JSON.parse(localStorage.getItem('payGoods')) || [],
-  adressList: JSON.parse(localStorage.getItem('adressList')) || [],
-  radio: JSON.parse(localStorage.getItem('radio')) || '1'
+  payGoods: JSON.parse(payGoods) || [],
+  adressList: JSON.parse(adressList) || [],
+  radio: JSON.parse(radio) || '1'
 }
 
 const mutations = {
@@ -21,8 +29,8 @@ const mutations = {
   editAdress (state, payload) {
     state.adressList[payload.index] = payload.data
   },
-  delItem(state,payload){
-    state.adressList.splice(payload,1)
+  delItem (state, payload) {
+    state.adressList.splice(payload, 1)
     localStorage.setItem('adressList', JSON.stringify(state.addAdressList))
   },
   addAdressList (state, payload) {
