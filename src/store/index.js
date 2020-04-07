@@ -8,6 +8,7 @@ let radio = localStorage.getItem('radio') || '1'
 let adressList = localStorage.getItem('adressList') || '[]'
 if ((adressList + '') == 'undefined') {
   adressList = '[]'
+  
 }
 Vue.use(Vuex)
 
