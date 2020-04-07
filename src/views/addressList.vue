@@ -21,7 +21,7 @@
           <div class="item"
                v-for="(item,index) in adressList"
                :key="index">
-            <img src="../assets/img/profile/message.png"
+            <img src="../assets/img/profile/address.svg"
                  alt="">
             <div>
               <p><em>{{item.username}}</em><span>{{item.phone}}</span></p>
@@ -109,6 +109,9 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.item>img{
+  width: 2em;
 }
 .adress {
   line-height: 1.5em;
