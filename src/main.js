@@ -1,4 +1,10 @@
-
+console.log(VueLazyload)
+Vue.use(VueLazyload, {
+  preLoad: 1.3,
+  error: './assets/error.jpg',
+  loading: './assets/loading.gif',
+  attempt: 1
+ })
 import Vue from 'vue'
 import App from './App'
 import router from './router'

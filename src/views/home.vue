@@ -27,7 +27,7 @@
         <div class="tuijian">
           <div v-for="(item,index) in tuijian"
                :key="index">
-            <img :src="item.image"
+            <img v-lazy="item.image"
                  alt=""><span>{{item.title}}</span>
           </div>
         </div>
@@ -46,7 +46,7 @@
                v-for="(item,index) in goods[curType].list"
                :key="index"
                @click="goDetail(item)">
-            <img :src="item.image"
+            <img v-lazy="item.image"
                  @load="imageLoad"
                  alt="">
             <p>{{item.title}}</p>
