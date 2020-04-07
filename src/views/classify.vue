@@ -72,7 +72,6 @@ export default {
         pullUpLoad: true// 拉倒底部触发
       })
       this.scrollLeft.on('scroll', (position) => {
-        // console.log(position.y)
         // 滚上去的高度大于二分之一屏，点击头部，可以滚动到中间
         // that.y=Math.abs(position.y)
 
@@ -113,7 +112,6 @@ export default {
     // this.half=Math.floor(window.screen.height/2)
     this.$axios.get('/classify')
       .then((res) => {
-        // console.log(res.data.data)
         this.leftNav = res.data.data
       })
     this.getMsg()

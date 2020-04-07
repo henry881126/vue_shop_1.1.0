@@ -129,7 +129,6 @@ export default {
           areaDetail: this.areaDetail,
           checked: false
         }
-        console.log(this.index+'')
         
         if (this.index+'' != 'null') {
           let data = {
@@ -138,7 +137,6 @@ export default {
           }
           this.editAdress(data)
         } else {
-console.log(999)
           this.addAdressList(obj)
         }
         this.$router.push('/addressList')
@@ -174,7 +172,6 @@ console.log(999)
     },
 
     confirm (ev) {
-      console.log(ev)
       let s = ''
       let res = new Set()
       ev.forEach((item, index) => {
@@ -190,7 +187,6 @@ console.log(999)
   created () {
     let data = this.$route.query.data
     let index = this.$route.query.index
-    console.log(data)
     if (data) {
 
       this.username = data.username

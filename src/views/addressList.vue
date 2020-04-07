@@ -79,7 +79,6 @@ export default {
   },
   created () {
     // this.radio=this.radio+''
-    console.log(this.radio)
   }
 }
 </script>

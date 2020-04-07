@@ -75,7 +75,6 @@ export default {
       this.$router.go(-1)
     },
     onChange () {
-      console.log(9)
     }
   },
   computed: {

@@ -123,7 +123,6 @@ export default {
   methods: {
     ...mapMutations(['clearCar', 'updatedMyGoods']),
     start ($event, item) {
-      console.log(item)
       let className = $event.target.className
       if (className === 'deleteContent') {
         for (let i = 0; i < this.myGoodsData.length; i++) {
@@ -135,7 +134,6 @@ export default {
           }
         }
       } else {
-        console.log(this.$refs[item.id])
         this.$refs[item.id][0].style.display = 'none'
       }
 
@@ -227,10 +225,8 @@ export default {
   },
   created () {
     this.myGoodsData = JSON.parse(JSON.stringify(this.myGoods))
-    console.log(this.myGoodsData)
     for (let i = 0; i < this.myGoodsData.length; i++) {
       let timestamp = Math.random().toString(36).substring(2) + i
-      // console.log(this.myGoods[i])
       this.myGoodsData[i].id = timestamp
     }
   }

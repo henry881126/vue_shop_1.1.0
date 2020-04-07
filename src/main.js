@@ -1,29 +1,17 @@
-console.log(VueLazyload)
-Vue.use(VueLazyload, {
-  preLoad: 1.3,
-  error: './assets/error.jpg',
-  loading: './assets/loading.gif',
-  attempt: 1
- })
+
 import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
+import 'lib-flexible/flexible'
 // vant
 // eslint-disable-next-line import/no-duplicates
 import Vant from 'vant'
 import 'vant/lib/index.css'
-import 'lib-flexible/flexible'
-
+import { Lazyload } from 'vant'
+Vue.use(Vant)
 // 请求
 import axios from 'axios'
-/* eslint-disable no-new */
-
-// 全局引入懒加载
-// eslint-disable-next-line import/no-duplicates
-import { Lazyload } from 'vant'
-
-Vue.use(Vant)
 
 // axios请求拦截
 axios.interceptors.request.use(function (config) {

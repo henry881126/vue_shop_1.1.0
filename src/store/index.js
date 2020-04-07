@@ -8,7 +8,7 @@ const state = {
   isShow: false,
   goodsItem: JSON.parse(localStorage.getItem('goodsItem')) || {},
   classify: false,
-  payGoods: JSON.parse(localStorage.getItem('payGoods')) || [],// 已支付的数据
+  payGoods: JSON.parse(localStorage.getItem('payGoods')) || [],
   adressList: JSON.parse(localStorage.getItem('adressList')) || [],
   radio: JSON.parse(localStorage.getItem('radio')) || '1'
 }
@@ -19,7 +19,6 @@ const mutations = {
     localStorage.setItem('radio', payload)
   },
   editAdress (state, payload) {
-    console.log(payload)
     state.adressList[payload.index] = payload.data
   },
   delItem(state,payload){
@@ -48,13 +47,9 @@ const mutations = {
     localStorage.setItem('myGoods', JSON.stringify(state.myGoods))
   },
   clearCar (state, payload) {
-    console.log(payload)
 
     state.myGoods = payload.noCheck
     state.payGoods.push(...payload.check)
-    console.log(state.myGoods)
-    console.log('---')
-    console.log(state.payGoods)
     localStorage.setItem('myGoods', JSON.stringify(payload.noCheck))
     localStorage.setItem('payGoods', JSON.stringify(payload.check))
   }
